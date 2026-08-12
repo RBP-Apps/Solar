@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #123B2A;
-  --color-primary-hover: #0b261b;
-  --color-secondary: #2E7D5B;
-  --color-secondary-hover: #236247;
-  --color-accent: #E7A928;
-  --color-accent-hover: #d2941b;
+  --color-primary: #1D4F91;
+  --color-primary-hover: #163B6E;
+  --color-secondary: #2563EB;
+  --color-secondary-hover: #1D4ED8;
+  --color-accent: #F3C348;
+  --color-accent-hover: #D4A330;
   --color-bg: #F7F9F6;
   --color-bg-card: #FFFFFF;
   --color-slate: #17211C;
@@ -41,7 +41,7 @@
 
   /* Focus visible accessibility outline */
   :focus-visible {
-    outline: 2px solid #E7A928;
+    outline: 2px solid #F3C348;
     outline-offset: 2px;
   }
 }

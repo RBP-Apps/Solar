@@ -8,7 +8,7 @@ export default function IndiaMapSection() {
   return (
     <section className="py-20 bg-primary text-white relative overflow-hidden">
       {/* Background Subtle Map Silhouette / Dots */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#E7A928_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F3C348_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
       <Container className="relative z-10">
         <SectionHeading
@@ -19,31 +19,31 @@ export default function IndiaMapSection() {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mt-12">
-          {/* Left Text Highlights */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-              <div className="w-10 h-10 rounded-lg bg-accent/20 text-accent flex items-center justify-center mb-4">
-                <Globe2 className="w-5 h-5" />
+          {/* Left Text Highlights — side-by-side on mobile/tablet, stacked on large screens */}
+          <div className="lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-4 lg:flex lg:flex-col lg:gap-6">
+            <div className="p-3.5 sm:p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-accent/20 text-accent flex items-center justify-center mb-2.5 sm:mb-4">
+                <Globe2 className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">State & Central Regulatory Alignment</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <h3 className="text-xs sm:text-lg font-bold text-white mb-1.5 sm:mb-2 leading-snug">State & Central Regulatory Alignment</h3>
+              <p className="text-[11px] sm:text-sm text-slate-300 leading-relaxed">
                 Helping businesses understand state-specific solar policies, central MNRE guidelines, and cross-border clean energy regulations.
               </p>
             </div>
 
-            <div className="p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-              <div className="w-10 h-10 rounded-lg bg-secondary/30 text-emerald-300 flex items-center justify-center mb-4">
-                <Compass className="w-5 h-5" />
+            <div className="p-3.5 sm:p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-secondary/30 text-emerald-300 flex items-center justify-center mb-2.5 sm:mb-4">
+                <Compass className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Inter-State Stakeholder Synergy</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <h3 className="text-xs sm:text-lg font-bold text-white mb-1.5 sm:mb-2 leading-snug">Inter-State Stakeholder Synergy</h3>
+              <p className="text-[11px] sm:text-sm text-slate-300 leading-relaxed">
                 Facilitating collaboration between industry bodies, state DISCOMs, and national renewable energy agencies.
               </p>
             </div>
           </div>
 
-          {/* Right Vector Pan-India Graphic Card */}
-          <div className="lg:col-span-7 bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-md relative flex flex-col items-center justify-center min-h-[380px]">
+          {/* Right Vector Pan-India Graphic Card — hidden on mobile/tablet, shown on large screens only */}
+          <div className="hidden lg:flex lg:col-span-7 bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-md relative flex-col items-center justify-center min-h-[380px]">
             {/* Vector Stylized Map Representation */}
             <div className="relative w-full max-w-md aspect-[4/3] flex items-center justify-center">
               <svg viewBox="0 0 400 450" fill="none" className="w-full h-full text-secondary opacity-30">

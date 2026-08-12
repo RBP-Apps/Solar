@@ -10,18 +10,13 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center bg-primary text-white overflow-hidden -mt-20 pt-24 pb-16">
-      {/* Background Video / Static Fallback Layer */}
+      {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/images/gallery/gallery-img-1.jpg"
-          className="w-full h-full object-cover opacity-25 scale-105"
-        >
-          <source src="/images/gallery/gallery-video-1.mp4" type="video/mp4" />
-        </video>
+        <img
+          src="/images/hero-solar-bg.jpg"
+          alt="Rooftop solar panel installation"
+          className="w-full h-full object-cover opacity-30 scale-105"
+        />
         {/* Subtle Corporate Dark Overlay Gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/60"></div>
         {/* Vector Grid Pattern Overlay */}
@@ -52,17 +47,7 @@ export default function HeroSection() {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
-            to="/our-work"
-            variant="accent"
-            size="lg"
-            icon={ArrowRight}
-            className="w-full sm:w-auto"
-          >
-            Explore Our Work
-          </Button>
-
-          <Button
-            to="/contact"
+            to="/#contact"
             variant="white"
             size="lg"
             className="w-full sm:w-auto"

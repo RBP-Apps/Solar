@@ -1,13 +1,20 @@
 import React from 'react';
 import { Award, UserCheck, Shield } from 'lucide-react';
 
+const HONORIFICS = new Set(['shri', 'smt', 'dr', 'dr.', 'mr', 'mr.', 'mrs', 'mrs.', 'ms', 'ms.']);
+
+function getInitials(name) {
+  const words = name.split(' ').filter((w) => !HONORIFICS.has(w.toLowerCase().replace('.', '')));
+  return words.slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+}
+
 export default function LeaderCard({ leader }) {
   const isPrimary = leader.tier === 'primary';
   const isSupporting = leader.tier === 'supporting';
 
   return (
     <div
-      className={`rounded-xl p-6 md:p-8 transition-all duration-300 border flex flex-col justify-between ${
+      className={`rounded-xl p-2.5 sm:p-3 md:p-4 transition-all duration-300 border flex flex-col items-center text-center ${
         isPrimary
           ? 'bg-gradient-to-br from-primary to-primary-hover text-white border-primary shadow-md hover:shadow-lg'
           : isSupporting
@@ -15,50 +22,44 @@ export default function LeaderCard({ leader }) {
           : 'bg-white border-slate-200 text-slate shadow-sm hover:border-secondary/40'
       }`}
     >
-      <div>
-        <div className="flex items-center justify-between mb-4">
-          <span
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider ${
-              isPrimary
-                ? 'bg-accent/20 text-accent border border-accent/30'
-                : isSupporting
-                ? 'bg-slate-100 text-slate-700 border border-slate-200'
-                : 'bg-secondary/10 text-secondary border border-secondary/20'
-            }`}
-          >
-            {isPrimary ? (
-              <Award className="w-3.5 h-3.5" />
-            ) : isSupporting ? (
-              <Shield className="w-3.5 h-3.5" />
-            ) : (
-              <UserCheck className="w-3.5 h-3.5" />
-            )}
-            {leader.role}
-          </span>
-        </div>
+      <div
+        className={`w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-xs md:text-sm font-bold mb-2 md:mb-3 ${
+          isPrimary
+            ? 'bg-accent/20 text-accent border border-accent/30'
+            : isSupporting
+            ? 'bg-slate-100 text-slate-700 border border-slate-200'
+            : 'bg-secondary/10 text-secondary border border-secondary/20'
+        }`}
+      >
+        {getInitials(leader.name)}
+      </div>
 
-        <h3
-          className={`font-extrabold tracking-tight mb-2 ${
-            isPrimary ? 'text-xl sm:text-2xl text-white' : 'text-lg text-primary'
-          }`}
-        >
-          {leader.name}
-        </h3>
-
-        {leader.bio && (
-          <p
-            className={`text-xs sm:text-sm leading-relaxed ${
-              isPrimary ? 'text-slate-200' : 'text-muted'
-            }`}
-          >
-            {leader.bio}
-          </p>
+      <span
+        className={`inline-flex items-center gap-1 px-1.5 md:px-2 py-0.5 rounded-full text-[9px] md:text-[10px] font-semibold uppercase tracking-wider mb-1.5 md:mb-2 ${
+          isPrimary
+            ? 'bg-accent/20 text-accent border border-accent/30'
+            : isSupporting
+            ? 'bg-slate-100 text-slate-700 border border-slate-200'
+            : 'bg-secondary/10 text-secondary border border-secondary/20'
+        }`}
+      >
+        {isPrimary ? (
+          <Award className="w-2.5 h-2.5 md:w-3 md:h-3" />
+        ) : isSupporting ? (
+          <Shield className="w-2.5 h-2.5 md:w-3 md:h-3" />
+        ) : (
+          <UserCheck className="w-2.5 h-2.5 md:w-3 md:h-3" />
         )}
-      </div>
+        {leader.role}
+      </span>
 
-      <div className={`mt-6 pt-4 border-t ${isPrimary ? 'border-white/10 text-accent' : 'border-slate-100 text-secondary'} text-xs font-medium`}>
-        Chhattisgarh Solar Business Welfare Association
-      </div>
+      <h3
+        className={`font-extrabold tracking-tight text-xs md:text-sm leading-snug ${
+          isPrimary ? 'text-white' : 'text-primary'
+        }`}
+      >
+        {leader.name}
+      </h3>
     </div>
   );
 }

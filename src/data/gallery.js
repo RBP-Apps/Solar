@@ -19,7 +19,7 @@ export const galleryItems = [
     id: 1,
     src: "/images/gallery/gallery-img-1.jpg",
     title: "Renewable Energy Stakeholder Summit",
-    category: "events",
+    category: "media",
     caption: "Association leadership addressing industry delegates and government representatives."
   },
   {
@@ -40,14 +40,14 @@ export const galleryItems = [
     id: 4,
     src: "/images/gallery/gallery-img-4.jpg",
     title: "Industry Excellence Recognition",
-    category: "recognition",
+    category: "media",
     caption: "Honoring leadership contributions towards regional clean energy development."
   },
   {
     id: 5,
     src: "/images/gallery/gallery-img-5.jpg",
     title: "State Clean Energy Forum",
-    category: "events",
+    category: "media",
     caption: "Pan-India delegates sharing insights on solar policy implementation."
   },
   {
@@ -65,39 +65,11 @@ export const galleryItems = [
     caption: "Feature publication outlining business welfare and policy advocacy."
   },
   {
-    id: 8,
-    src: "/images/gallery/gallery-img-8.jpg",
-    title: "Leadership Felicitation",
-    category: "recognition",
-    caption: "Special recognition for institutional advocacy in renewable energy."
-  },
-  {
-    id: 9,
-    src: "/images/gallery/gallery-img-9.jpg",
-    title: "Rooftop Solar Expo Presentation",
-    category: "events",
-    caption: "Educating stakeholders on PM Surya Ghar and state incentive programs."
-  },
-  {
     id: 10,
     src: "/images/gallery/gallery-img-10.jpg",
     title: "DISCOM Delegation Roundtable",
-    category: "meetings",
-    caption: "Resolving grid interconnection challenges with power distribution utility officers."
-  },
-  {
-    id: 11,
-    src: "/images/gallery/gallery-img-11.jpg",
-    title: "Newspaper Coverage — Energy Ecosystem",
     category: "media",
-    caption: "Public notice and article on clean energy facilitation across Chhattisgarh."
-  },
-  {
-    id: 12,
-    src: "/images/gallery/gallery-img-12.jpg",
-    title: "Association Plaque Presentation",
-    category: "recognition",
-    caption: "Memento presentation acknowledging collaborative efforts in policy advocacy."
+    caption: "Resolving grid interconnection challenges with power distribution utility officers."
   },
   {
     id: 13,
@@ -110,7 +82,7 @@ export const galleryItems = [
     id: 14,
     src: "/images/gallery/gallery-img-14.jpg",
     title: "RE Policy Review Session",
-    category: "meetings",
+    category: "media",
     caption: "Reviewing regulatory frameworks with state renewable energy authorities."
   },
   {
@@ -124,7 +96,7 @@ export const galleryItems = [
     id: 16,
     src: "/images/gallery/gallery-img-16.jpg",
     title: "Honorary Award Presentation",
-    category: "recognition",
+    category: "media",
     caption: "Distinguished service honor presented to CSBWA office bearers."
   },
   {

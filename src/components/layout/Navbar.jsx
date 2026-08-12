@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import Logo from '../common/Logo';
 import Container from '../common/Container';
@@ -22,8 +22,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isHeaderTransparent
-          ? 'bg-transparent text-white py-4'
-          : 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 text-slate py-3'
+          ? 'bg-transparent text-white py-5'
+          : 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 text-slate py-4'
       }`}
     >
       <Container>
@@ -31,33 +31,26 @@ export default function Navbar() {
           {/* Logo */}
           <Logo light={isHeaderTransparent} />
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Main Navigation">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  `text-sm font-semibold transition-colors duration-200 relative py-1 ${
-                    isActive
-                      ? isHeaderTransparent
-                        ? 'text-accent font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent'
-                        : 'text-secondary font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-secondary'
-                      : isHeaderTransparent
+          {/* Desktop Nav Links + CTA */}
+          <div className="hidden lg:flex items-center gap-12">
+            <nav className="flex items-center gap-9" aria-label="Main Navigation">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-sm font-semibold transition-colors duration-200 relative py-1 ${
+                    isHeaderTransparent
                       ? 'text-white/90 hover:text-accent'
                       : 'text-slate/80 hover:text-secondary'
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
 
-          {/* Contact CTA Button */}
-          <div className="hidden lg:flex items-center">
             <Button
-              to="/contact"
+              to="/#contact"
               variant={isHeaderTransparent ? 'accent' : 'primary'}
               size="sm"
               icon={ArrowRight}
@@ -85,26 +78,22 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[65px] bg-white border-b border-slate-200 shadow-xl p-6 transition-all duration-300">
+        <div className="lg:hidden fixed inset-x-0 top-[73px] bg-white border-b border-slate-200 shadow-xl p-6 transition-all duration-300">
           <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
             {navLinks.map((link) => (
-              <NavLink
+              <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `text-base font-semibold py-2 border-b border-slate-100 flex items-center justify-between ${
-                    isActive ? 'text-secondary font-bold' : 'text-slate/80 hover:text-secondary'
-                  }`
-                }
+                className="text-base font-semibold py-2 border-b border-slate-100 flex items-center justify-between text-slate/80 hover:text-secondary"
               >
                 {link.label}
                 <ArrowRight className="w-4 h-4 text-slate-400" />
-              </NavLink>
+              </Link>
             ))}
             <div className="pt-4">
               <Button
-                to="/contact"
+                to="/#contact"
                 variant="primary"
                 size="md"
                 className="w-full"

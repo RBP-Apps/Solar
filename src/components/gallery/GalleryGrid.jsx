@@ -1,30 +1,24 @@
 import React, { useState } from 'react';
 import MediaCard from '../cards/MediaCard';
-import GalleryFilter from './GalleryFilter';
 import Lightbox from './Lightbox';
+import Button from '../common/Button';
 import { galleryItems } from '../../data/gallery';
 
-export default function GalleryGrid({ initialCategory = 'all', limit }) {
-  const [activeCategory, setActiveCategory] = useState(initialCategory);
+const INITIAL_VISIBLE_COUNT = 8;
+
+export default function GalleryGrid({ limit }) {
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
+  const [showAll, setShowAll] = useState(false);
 
-  const filteredItems = activeCategory === 'all'
-    ? galleryItems
-    : galleryItems.filter(item => item.category === activeCategory);
+  const displayedItems = limit ? galleryItems.slice(0, limit) : galleryItems;
+  const visibleItems = showAll ? displayedItems : displayedItems.slice(0, INITIAL_VISIBLE_COUNT);
 
-  const displayedItems = limit ? filteredItems.slice(0, limit) : filteredItems;
-
-  const currentItem = selectedItemIndex !== null ? displayedItems[selectedItemIndex] : null;
+  const currentItem = selectedItemIndex !== null ? visibleItems[selectedItemIndex] : null;
 
   return (
     <div>
-      <GalleryFilter
-        activeCategory={activeCategory}
-        onSelectCategory={setActiveCategory}
-      />
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {displayedItems.map((item, idx) => (
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {visibleItems.map((item, idx) => (
           <MediaCard
             key={item.id}
             item={item}
@@ -33,15 +27,23 @@ export default function GalleryGrid({ initialCategory = 'all', limit }) {
         ))}
       </div>
 
+      {!showAll && displayedItems.length > INITIAL_VISIBLE_COUNT && (
+        <div className="flex justify-center mt-10">
+          <Button variant="outline" size="md" onClick={() => setShowAll(true)}>
+            View More
+          </Button>
+        </div>
+      )}
+
       {/* Lightbox Modal */}
       {currentItem && (
         <Lightbox
           item={currentItem}
           onClose={() => setSelectedItemIndex(null)}
           onPrev={() => setSelectedItemIndex(prev => Math.max(0, prev - 1))}
-          onNext={() => setSelectedItemIndex(prev => Math.min(displayedItems.length - 1, prev + 1))}
+          onNext={() => setSelectedItemIndex(prev => Math.min(visibleItems.length - 1, prev + 1))}
           hasPrev={selectedItemIndex > 0}
-          hasNext={selectedItemIndex < displayedItems.length - 1}
+          hasNext={selectedItemIndex < visibleItems.length - 1}
         />
       )}
     </div>

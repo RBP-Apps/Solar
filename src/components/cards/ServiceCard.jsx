@@ -48,7 +48,7 @@ export default function ServiceCard({ service, showLink = true }) {
 
       {showLink && (
         <Link
-          to={`/our-work#${service.slug}`}
+          to={`/#${service.slug}`}
           className="inline-flex items-center gap-1.5 text-xs font-bold text-secondary hover:text-primary transition-colors group/link pt-2 border-t border-slate-100"
         >
           <span>Learn Scope</span>

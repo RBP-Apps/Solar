@@ -8,9 +8,9 @@ export default function Logo({ light = false, className = '' }) {
       <div className="relative w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl bg-primary shadow-sm border border-primary/20 transition-transform duration-300 group-hover:scale-105">
         <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7">
           {/* Subtle Sun Rays / Grid Ring */}
-          <circle cx="20" cy="20" r="14" stroke="#E7A928" strokeWidth="2" strokeDasharray="3 2" opacity="0.8" />
+          <circle cx="20" cy="20" r="14" stroke="#F3C348" strokeWidth="2" strokeDasharray="3 2" opacity="0.8" />
           {/* Sun Core */}
-          <circle cx="20" cy="20" r="6" fill="#E7A928" />
+          <circle cx="20" cy="20" r="6" fill="#F3C348" />
           {/* Green Energy Petals */}
           <path d="M20 5C20 5 24 11 20 15C16 11 20 5 20 5Z" fill="#2E7D5B" />
           <path d="M20 35C20 35 16 29 20 25C24 29 20 35 20 35Z" fill="#2E7D5B" />
