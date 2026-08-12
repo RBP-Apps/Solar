@@ -15,7 +15,6 @@ import SectionHeading from '../../components/common/SectionHeading';
 import LeaderCard from '../../components/cards/LeaderCard';
 import Button from '../../components/common/Button';
 import EcosystemDiagram from '../../components/home/EcosystemDiagram';
-import IndiaMapSection from '../../components/home/IndiaMapSection';
 import ContactForm from '../../components/home/ContactForm';
 import GalleryGrid from '../../components/gallery/GalleryGrid';
 
@@ -140,9 +139,6 @@ export default function Home() {
           <EcosystemDiagram />
         </Container>
       </section>
-
-      {/* Section: Pan-India Approach */}
-      <IndiaMapSection />
 
       {/* Section: Media & Gallery */}
       <section id="media" className="py-20 bg-bg scroll-mt-24 border-t border-slate-200/80">
