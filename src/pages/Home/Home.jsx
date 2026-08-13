@@ -119,9 +119,16 @@ export default function Home() {
 
             {/* Leadership Team — single row on large screens, wraps on smaller ones */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4">
-              {leadership.map((leader) => (
-                <LeaderCard key={leader.id} leader={leader} />
-              ))}
+              {leadership.map((leader, idx) => {
+                const isLast = idx === leadership.length - 1;
+                const isOddLast = isLast && leadership.length % 2 === 1;
+                
+                return (
+                  <div key={leader.id} className={isOddLast ? "col-span-2 sm:col-span-1 flex justify-center" : ""}>
+                    <LeaderCard leader={leader} />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </Container>
@@ -197,25 +204,23 @@ export default function Home() {
 
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-lg bg-white/10 text-accent flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-white">Email Address</h4>
-                      <a href={`mailto:${company.contact.email}`} className="text-slate-300 hover:text-accent text-xs mt-0.5 block">
-                        {company.contact.email}
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-white/10 text-accent flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
                       <h4 className="font-bold text-white">Phone Support</h4>
-                      <a href={`tel:${company.contact.phone}`} className="text-slate-300 hover:text-accent text-xs mt-0.5 block">
-                        {company.contact.phone}
-                      </a>
+                      {company.contact.phones && company.contact.phones.length > 0 ? (
+                        <div className="mt-0.5 space-y-1">
+                          {company.contact.phones.map((phone, idx) => (
+                            <a key={idx} href={`tel:${phone}`} className="text-slate-300 hover:text-accent text-xs block">
+                              +91 {phone.slice(0, -10)}{phone.slice(-10)}
+                            </a>
+                          ))}
+                        </div>
+                      ) : (
+                        <a href={`tel:${company.contact.phone}`} className="text-slate-300 hover:text-accent text-xs mt-0.5 block">
+                          {company.contact.phone}
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

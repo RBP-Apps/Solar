@@ -1,7 +1,7 @@
 export const leadership = [
   {
-    id: "jaykishan-bajaj",
-    name: "Shri Jaykishan Bajaj",
+    id: "jaikishan-bajaj",
+    name: "Shri Jaikishan Bajaj",
     role: "President",
     tier: "primary",
     bio: "Leading strategic initiatives, government dialogue, and overarching policy vision for the solar and clean energy business community."
@@ -21,8 +21,8 @@ export const leadership = [
     bio: "Fostering industry partnerships, technological advocacy, and regional business growth across renewable energy sectors."
   },
   {
-    id: "waseem-ahmad",
-    name: "Shri Waseem Ahmad",
+    id: "wasim-ahmed",
+    name: "Shri Wasim Ahmed",
     role: "Vice President",
     tier: "secondary",
     bio: "Advancing stakeholder participation, DISCOM coordination, and rooftop solar adoption frameworks."
@@ -42,8 +42,8 @@ export const leadership = [
     bio: "Providing advisory counsel and senior guidance on renewable energy policies and industrial development."
   },
   {
-    id: "kawaljit-khurana",
-    name: "Shri Kawaljit Khurana",
+    id: "kanwaljit-singh-khurana",
+    name: "Shri Kanwaljit Singh Khurana",
     role: "Patron",
     tier: "supporting",
     bio: "Guiding institutional relationships, policy alignment, and pan-India stakeholder outreach."

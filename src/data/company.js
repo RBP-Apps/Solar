@@ -42,6 +42,11 @@ export const company = {
   contact: {
     email: "contact@csbwa.in", // Placeholder field
     phone: "+91 (0771) 400-SOLAR", // Placeholder field
+    phones: [
+      "9303408600",
+      "9993567808",
+      "7880011129"
+    ],
     address: "Raipur, Chhattisgarh, India", // Placeholder field
     operatingHours: "Monday – Friday: 9:30 AM – 6:00 PM IST"
   }

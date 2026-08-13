@@ -39,16 +39,20 @@ export default function Footer() {
                 <span>{company.contact.address}</span>
               </div>
               <div className="flex items-start gap-1.5 md:gap-2.5">
-                <Mail className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent flex-shrink-0 mt-0.5" />
-                <a href={`mailto:${company.contact.email}`} className="hover:text-white transition-colors break-all">
-                  {company.contact.email}
-                </a>
-              </div>
-              <div className="flex items-start gap-1.5 md:gap-2.5">
                 <Phone className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent flex-shrink-0 mt-0.5" />
-                <a href={`tel:${company.contact.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-white transition-colors">
-                  {company.contact.phone}
-                </a>
+                <div className="flex flex-col gap-1">
+                  {company.contact.phones && company.contact.phones.length > 0 ? (
+                    company.contact.phones.map((phone, idx) => (
+                      <a key={idx} href={`tel:+91${phone}`} className="hover:text-white transition-colors">
+                        +91 {phone.slice(0, -10)}{phone.slice(-10)}
+                      </a>
+                    ))
+                  ) : (
+                    <a href={`tel:${company.contact.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-white transition-colors">
+                      {company.contact.phone}
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </div>
