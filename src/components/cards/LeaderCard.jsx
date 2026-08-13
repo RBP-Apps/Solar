@@ -14,7 +14,7 @@ export default function LeaderCard({ leader }) {
 
   return (
     <div
-      className={`rounded-xl p-2.5 sm:p-3 md:p-4 transition-all duration-300 border flex flex-col items-center text-center ${
+      className={`h-full w-full rounded-xl p-2.5 sm:p-3 md:p-4 transition-all duration-300 border flex flex-col items-center text-center ${
         isPrimary
           ? 'bg-gradient-to-br from-primary to-primary-hover text-white border-primary shadow-md hover:shadow-lg'
           : isSupporting

@@ -117,8 +117,8 @@ export default function Home() {
               description="Distinguished office bearers and advisors steering the vision, advocacy, and institutional dialogue of the association."
             />
 
-            {/* Leadership Team — single row on large screens, wraps on smaller ones */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4">
+            {/* Leadership Team — 4-across on laptop/tablet screens for breathing room, single row only on wide desktop monitors */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 2xl:grid-cols-7 gap-3 md:gap-4 lg:gap-5">
               {leadership.map((leader, idx) => {
                 const isLast = idx === leadership.length - 1;
                 const isOddLast = isLast && leadership.length % 2 === 1;
