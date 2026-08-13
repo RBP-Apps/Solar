@@ -14,8 +14,6 @@ export default function Navbar() {
 
   const isHomePage = location.pathname === '/';
   const isScrolled = scrollPosition > 20;
-
-  // On home page initial scroll state, use transparent overlay look if desired, or crisp light header
   const isHeaderTransparent = isHomePage && !isScrolled && !mobileMenuOpen;
 
   return (
@@ -23,22 +21,20 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isHeaderTransparent
           ? 'bg-transparent text-white py-5'
-          : 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 text-slate py-4'
+          : 'bg-white/95 backdrop-blur-md shadow-md shadow-slate-200/50 border-b border-slate-200/80 text-slate py-3.5'
       }`}
     >
       <Container>
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Logo light={isHeaderTransparent} />
 
-          {/* Desktop Nav Links + CTA */}
-          <div className="hidden lg:flex items-center gap-12">
-            <nav className="flex items-center gap-9" aria-label="Main Navigation">
+          <div className="hidden lg:flex items-center gap-10">
+            <nav className="flex items-center gap-8" aria-label="Main Navigation">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-sm font-semibold transition-colors duration-200 relative py-1 ${
+                  className={`text-sm font-semibold transition-colors duration-200 relative py-1 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full ${
                     isHeaderTransparent
                       ? 'text-white/90 hover:text-accent'
                       : 'text-slate/80 hover:text-secondary'
@@ -59,7 +55,6 @@ export default function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -76,22 +71,21 @@ export default function Navbar() {
         </div>
       </Container>
 
-      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[73px] bg-white border-b border-slate-200 shadow-xl p-6 transition-all duration-300">
-          <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
+        <div className="lg:hidden fixed inset-x-0 top-[68px] bg-white border-b border-slate-200 shadow-xl p-6 transition-all duration-300">
+          <nav className="flex flex-col gap-1" aria-label="Mobile Navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-semibold py-2 border-b border-slate-100 flex items-center justify-between text-slate/80 hover:text-secondary"
+                className="text-base font-semibold py-3 border-b border-slate-100 flex items-center justify-between text-slate/80 hover:text-secondary"
               >
                 {link.label}
                 <ArrowRight className="w-4 h-4 text-slate-400" />
               </Link>
             ))}
-            <div className="pt-4">
+            <div className="pt-5">
               <Button
                 to="/#contact"
                 variant="primary"

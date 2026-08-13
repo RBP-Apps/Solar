@@ -4,6 +4,7 @@ export const leadership = [
     name: "Shri Jaikishan Bajaj",
     role: "President",
     tier: "primary",
+    phone: "+91 9303408600",
     bio: "Leading strategic initiatives, government dialogue, and overarching policy vision for the solar and clean energy business community."
   },
   {
@@ -25,6 +26,7 @@ export const leadership = [
     name: "Shri Wasim Ahmed",
     role: "Vice President",
     tier: "secondary",
+    phone: "+91 9993567808",
     bio: "Advancing stakeholder participation, DISCOM coordination, and rooftop solar adoption frameworks."
   },
   {
@@ -46,6 +48,7 @@ export const leadership = [
     name: "Shri Kanwaljit Singh Khurana",
     role: "Patron",
     tier: "supporting",
+    phone: "+91 7880011129",
     bio: "Guiding institutional relationships, policy alignment, and pan-India stakeholder outreach."
   }
 ];

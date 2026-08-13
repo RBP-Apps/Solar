@@ -36,7 +36,7 @@ export default function ContactForm() {
   };
 
   const inputClasses =
-    'w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors';
+    'w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/60 focus:border-accent focus:bg-white transition-all duration-200';
 
   return (
     <form onSubmit={handleSubmit} className="w-full text-left" noValidate>
@@ -110,7 +110,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="group inline-flex items-center justify-center gap-2 font-semibold rounded-lg px-6 py-3 text-sm bg-primary text-white hover:bg-primary-hover shadow-sm hover:shadow-md border border-primary/20 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed"
+          className="group inline-flex items-center justify-center gap-2 font-semibold rounded-xl px-7 py-3.5 text-sm bg-primary text-white hover:bg-primary-hover shadow-md shadow-primary/20 hover:shadow-lg border border-primary/10 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {status === 'submitting' ? (
             <>
